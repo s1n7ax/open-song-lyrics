@@ -1,2 +1,9 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+	interface Data {
+		visited: boolean;
+	}
+
+	const { data }: { data: Data } = $props();
+</script>
+
+<h1 class="text-9xl">{data.visited ? 'already a user' : 'first time'}</h1>
