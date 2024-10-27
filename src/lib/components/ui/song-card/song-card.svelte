@@ -3,17 +3,22 @@
 	import { Card } from '../card';
 
 	const { song }: { song: Song } = $props();
-	const firstFiveLines: string[] = [];
-
-	for (let i = 0; i < song.lyrics[0].length && i < 5; i++) {
-		firstFiveLines.push(song.lyrics[0][i]);
-	}
+	const topLines = $derived(song.lyrics[0].slice(0, 5));
 </script>
 
-<Card class="w-full p-2">
-	<h3 class="text-sm font-semibold">{song.track_name_si}</h3>
-	<h4 class="text-xs font-semibold">{song.artist_name_si}</h4>
-	{#each firstFiveLines as line}
-		<p class="text-xs">{line}</p>
-	{/each}
-</Card>
+<a href="song/{song.track_id}">
+	<Card class="w-full p-2 hover:bg-slate-200">
+		<div class="grid">
+			<div class="grid grid-flow-col items-end justify-start gap-1">
+				<h3 class="text-lg">
+					{song.track_name_si}
+				</h3>
+				<h3 class="text-base">({song.artist_name_si})</h3>
+			</div>
+		</div>
+
+		{#each topLines as line}
+			<p class="text-sm">{line}</p>
+		{/each}
+	</Card>
+</a>

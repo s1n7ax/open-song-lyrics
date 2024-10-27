@@ -1,5 +1,5 @@
 export interface Song {
-	track_id: number;
+	track_id: string;
 	track_name_en: string;
 	track_name_si: string;
 	track_rating: number;
@@ -11,10 +11,17 @@ export interface Song {
 	lyrics: string[][];
 }
 
-export interface SongState {
-	songs: Song[] | null;
-}
+type SongState =
+	| {
+			isLoadingSongs: true;
+			songs: null;
+	  }
+	| {
+			isLoadingSongs: false;
+			songs: Song[];
+	  };
 
 export const songState = $state<SongState>({
+	isLoadingSongs: true,
 	songs: null
 });
