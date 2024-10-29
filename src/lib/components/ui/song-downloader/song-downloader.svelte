@@ -5,12 +5,14 @@
 	import axios from 'axios';
 	import { songState } from '../../../../state/songs.svelte';
 
+	let isDownloading = $state(false);
 	let downloadProgres = $state({
 		progress: 0,
-		estimated: 'calculating...'
+		estimated: ''
 	});
 
 	const downloadSongs = async () => {
+		isDownloading = true;
 		const res = await axios.request({
 			method: 'GET',
 			url: 'https://raw.githubusercontent.com/s1n7ax/sinhala-songs-corpus/refs/heads/master/lyrics.json',
@@ -28,13 +30,16 @@
 		const songs = res.data;
 		localStorage.setItem('songs', JSON.stringify(songs));
 		songState.songs = songs;
+		isDownloading = false;
 	};
 </script>
 
 <Card class="m-2 grid w-11/12 p-3">
 	<p class="py-1">Looks like you have not downloaded any songs</p>
 	<p class="py-1">Click the button to download all the songs</p>
-	<Button class="mt-3 place-self-center" on:click={downloadSongs}>Download</Button>
+	<Button class="mt-3 place-self-center" disabled={isDownloading} on:click={downloadSongs}
+		>{isDownloading ? 'Downloading' : 'Download'}</Button
+	>
 	<Progress class="mt-3" value={downloadProgres.progress} />
-	<p>{downloadProgres.estimated}</p>
+	<p>{downloadProgres.estimated !== '' ? 'Estimation: ' + downloadProgres.estimated : ''}</p>
 </Card>
