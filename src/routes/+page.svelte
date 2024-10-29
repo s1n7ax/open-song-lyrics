@@ -1,13 +1,13 @@
 <script lang="ts">
-	import { songState } from '../state/shared.svelte';
-	import Downloader from './components/downloader.svelte';
-	import Search from './components/search.svelte';
+	import SongDownloader from '$lib/components/ui/song-downloader/song-downloader.svelte';
+	import SongSearch from '$lib/components/ui/song-search/song-search.svelte';
+	import { songState } from '../state/songs.svelte';
 </script>
 
 <main class="overflow-hidden">
 	{#if !songState.songs}
-		<Downloader />
+		<SongDownloader />
 	{:else}
-		<Search songs={songState.songs} />
+		<SongSearch songs={songState.songs} />
 	{/if}
 </main>

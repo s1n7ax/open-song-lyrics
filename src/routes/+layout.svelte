@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import '../app.css';
-	import { songState } from '../state/shared.svelte';
+	import { songState } from '../state/songs.svelte';
 	import Spinner from '$lib/components/ui/spinner/spinner.svelte';
 
 	let { children } = $props();

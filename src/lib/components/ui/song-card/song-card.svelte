@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Song } from '../../../../state/shared.svelte';
+	import type { Song } from '../../../../state/songs.svelte';
 	import { Card } from '../card';
 
 	const { song }: { song: Song } = $props();

@@ -2,7 +2,7 @@
 	import { Input } from '$lib/components/ui/input';
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import SongCard from '$lib/components/ui/song-card/song-card.svelte';
-	import type { Song } from '../../state/shared.svelte';
+	import type { Song } from '../../state/songs.svelte';
 
 	const { songs }: { songs: Song[] } = $props();
 	let searchQuery = $state<string>('');

@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import Card from '$lib/components/ui/card/card.svelte';
 	import { redirect } from '@sveltejs/kit';
-	import { songState } from '../../../state/shared.svelte';
+	import { songState } from '../../../state/songs.svelte';
 	const songId = $page.params.songId;
 
 	if (!songState.songs) redirect(302, '/');

@@ -2,7 +2,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Card } from '$lib/components/ui/card';
 	import { Progress } from '$lib/components/ui/progress';
-	import { songState } from '../../state/shared.svelte';
+	import { songState } from '../../state/songs.svelte';
 	import axios from 'axios';
 
 	let downloadProgres = $state({
