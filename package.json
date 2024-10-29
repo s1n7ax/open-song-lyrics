@@ -28,6 +28,7 @@
     "@types/eslint": "^9.6.0",
     "@types/node": "^22.8.1",
     "autoprefixer": "^10.4.20",
+    "bits-ui": "^0.21.16",
     "clsx": "^2.1.1",
     "drizzle-kit": "^0.22.0",
     "eslint": "^9.7.0",
