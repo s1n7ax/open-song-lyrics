@@ -12,7 +12,7 @@
 	let { open, onClose, song }: Props = $props();
 </script>
 
-<Drawer.Root bind:open onClose={() => onClose()}>
+<Drawer.Root bind:open onOpenChange={onClose}>
 	<Drawer.Content class="h-svh">
 		<div class="grid w-full grid-rows-[auto_1fr] justify-center gap-2 overflow-hidden">
 			<h2 class="text-center text-4xl">{song.track_name_si}</h2>
