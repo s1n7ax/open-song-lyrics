@@ -25,6 +25,7 @@
 
 <div class="grid h-full grid-rows-[auto_1fr] gap-2 p-1">
 	<Input
+		class="text-xl sm:text-2xl md:text-3xl"
 		on:keyup={(ev) => {
 			const value = ev.currentTarget.value.trim().toLowerCase();
 			clearTimeout(timeoutId);

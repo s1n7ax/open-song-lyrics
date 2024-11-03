@@ -10,7 +10,7 @@
 <Card class="w-full p-2 hover:bg-slate-200">
 	<div class="grid">
 		<div class="grid grid-flow-col items-end justify-start gap-1">
-			<h3 class="text-lg">
+			<h3 class="text-xl">
 				{song.track_name_si}
 			</h3>
 			<h3 class="text-base">({song.artist_name_si})</h3>
