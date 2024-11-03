@@ -1,4 +1,5 @@
 <script lang="ts">
+	export const prerender = true;
 	import { onMount } from 'svelte';
 	import '../app.css';
 	import { songState } from '../state/songs.svelte';
