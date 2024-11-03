@@ -18,7 +18,7 @@ const config = {
 			precompress: true
 		}),
 		paths: {
-			base: dev ? '' : '/SPA-build-not-adding-repo-name'
+			base: dev ? '' : 'https://s1n7ax.github.io/open-song-lyrics/'
 		}
 	}
 };
