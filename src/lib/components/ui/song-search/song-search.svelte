@@ -3,7 +3,7 @@
 	import { ScrollArea } from '$lib/components/ui/scroll-area';
 	import SongCard from '$lib/components/ui/song-card/song-card.svelte';
 	import type { Song } from '../../../../state/songs.svelte';
-	import SongDrawer from '../song-drawer/song-drawer.svelte';
+	import SongPopup from '../song-popup/song-popup.svelte';
 
 	const { songs }: { songs: Song[] } = $props();
 	let searchQuery = $state<string>('');
@@ -41,7 +41,8 @@
 				<a
 					href="/#"
 					role="button"
-					onclick={() => {
+					onclick={(ev) => {
+						ev.preventDefault();
 						selectedSong = song;
 						isDrawerOpened = true;
 					}}
@@ -52,5 +53,5 @@
 		</div>
 	</ScrollArea>
 
-	<SongDrawer song={selectedSong} open={isDrawerOpened} {onClose} />
+	<SongPopup song={selectedSong} open={isDrawerOpened} {onClose} />
 </div>

@@ -1,18 +1,16 @@
 <script lang="ts">
-	import { Drawer as DrawerPrimitive } from "vaul-svelte";
+	import { AlertDialog as AlertDialogPrimitive } from "bits-ui";
 	import { cn } from "$lib/utils.js";
 
-	type $$Props = DrawerPrimitive.DescriptionProps;
+	type $$Props = AlertDialogPrimitive.DescriptionProps;
 
-	export let el: $$Props["el"] = undefined;
 	let className: $$Props["class"] = undefined;
 	export { className as class };
 </script>
 
-<DrawerPrimitive.Description
-	bind:el
+<AlertDialogPrimitive.Description
 	class={cn("text-muted-foreground text-sm", className)}
 	{...$$restProps}
 >
 	<slot />
-</DrawerPrimitive.Description>
+</AlertDialogPrimitive.Description>
