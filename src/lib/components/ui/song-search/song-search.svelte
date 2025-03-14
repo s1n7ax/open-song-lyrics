@@ -35,7 +35,7 @@
 			type="text"
 			placeholder="Search"
 		/>
-		<a href="/#download" class="p-2">
+		<a href="#download" class="p-2">
 			<RefreshCcw class="accent-indigo-100" />
 		</a>
 	</div>
