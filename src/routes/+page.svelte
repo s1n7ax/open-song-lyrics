@@ -6,7 +6,7 @@
 </script>
 
 <main class="overflow-hidden">
-	{#if !songs}
+	{#if !songs || window.location.hash === '#download'}
 		<SongDownloader />
 	{:else}
 		<SongSearch {songs} />

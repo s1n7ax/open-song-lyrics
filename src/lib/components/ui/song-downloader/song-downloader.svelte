@@ -4,6 +4,7 @@
 	import { Progress } from '$lib/components/ui/progress';
 	import axios from 'axios';
 	import { songState } from '../../../../state/songs.svelte';
+	import { goto } from '$app/navigation';
 
 	let isDownloading = $state(false);
 	let downloadProgres = $state({
@@ -31,6 +32,7 @@
 		localStorage.setItem('songs', JSON.stringify(songs));
 		songState.songs = songs;
 		isDownloading = false;
+		goto('/');
 	};
 </script>
 
