@@ -16,7 +16,7 @@ const config = {
 			precompress: true
 		}),
 		paths: {
-			base: '/'
+			base: ''
 		}
 	}
 };
