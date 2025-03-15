@@ -36,12 +36,16 @@
 	};
 </script>
 
-<Card class="m-2 grid w-11/12 p-3">
-	<p class="py-1">Looks like you have not downloaded any songs</p>
-	<p class="py-1">Click the button to download all the songs</p>
-	<Button class="mt-3 place-self-center" disabled={isDownloading} on:click={downloadSongs}
-		>{isDownloading ? 'Downloading' : 'Download'}</Button
-	>
-	<Progress class="mt-3" value={downloadProgres.progress} />
-	<p>{downloadProgres.estimated !== '' ? 'Estimation: ' + downloadProgres.estimated : ''}</p>
-</Card>
+<div
+	class="justify-content-center grid h-full w-full content-start justify-center justify-items-center"
+>
+	<Card class="m-2 grid w-full p-3">
+		<p class="py-1">Looks like you have not downloaded any songs</p>
+		<p class="py-1">Click the button to download all the songs</p>
+		<Button class="mt-3 place-self-center" disabled={isDownloading} on:click={downloadSongs}
+			>{isDownloading ? 'Downloading' : 'Download'}</Button
+		>
+		<Progress class="mt-3" value={downloadProgres.progress} />
+		<p>{downloadProgres.estimated !== '' ? 'Estimation: ' + downloadProgres.estimated : ''}</p>
+	</Card>
+</div>
