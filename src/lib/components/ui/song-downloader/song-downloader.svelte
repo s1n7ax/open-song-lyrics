@@ -40,9 +40,9 @@
 		<div class="card-body m-5 p-0">
 			<h2 class="card-title">Download Songs</h2>
 			<p>Click the button to download/update songs</p>
-			<div class="card-actions justify-center">
+			<div class="card-actions mt-3 justify-center gap-4">
 				<button
-					class="btn btn-primary btn-outline"
+					class="btn btn-neutral btn-outline hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-900"
 					disabled={isDownloading}
 					onclick={downloadSongs}
 				>
@@ -52,7 +52,7 @@
 					{isDownloading ? 'Downloading' : 'Download'}
 				</button>
 
-				<progress class="progress progress-primary h-4" value={downloadProgres.progress} max="100"
+				<progress class="progress progress-neutral h-4" value={downloadProgres.progress} max="100"
 				></progress>
 				<p>{downloadProgres.estimated !== '' ? 'Estimation: ' + downloadProgres.estimated : ''}</p>
 			</div>
