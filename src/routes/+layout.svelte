@@ -4,13 +4,15 @@
 	import '../app.css';
 	import { songState } from '../state/songs.svelte';
 	import Spinner from '$lib/components/ui/spinner/spinner.svelte';
+	import { SongDao } from '$lib/dao/song-dao';
 
 	let { children } = $props();
 
-	onMount(() => {
-		const songsStr = localStorage.getItem('songs');
-		if (songsStr) {
-			songState.songs = JSON.parse(songsStr);
+	onMount(async () => {
+		const songDao = new SongDao();
+		const songs = await songDao.find();
+		if (songs) {
+			songState.songs = songs;
 		}
 		songState.isLoadingSongs = false;
 	});

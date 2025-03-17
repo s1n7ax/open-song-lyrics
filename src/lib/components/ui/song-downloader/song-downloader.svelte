@@ -5,6 +5,7 @@
 	import axios from 'axios';
 	import { songState } from '../../../../state/songs.svelte';
 	import { goto } from '$app/navigation';
+	import { SongDao } from '$lib/dao/song-dao';
 
 	let isDownloading = $state(false);
 	let downloadProgres = $state({
@@ -13,10 +14,12 @@
 	});
 
 	const downloadSongs = async () => {
+		const songDao = new SongDao();
 		isDownloading = true;
 		const res = await axios.request({
 			method: 'GET',
 			url: 'https://raw.githubusercontent.com/s1n7ax/sinhala-songs-corpus/refs/heads/master/lyrics.json',
+			responseType: 'blob',
 			onDownloadProgress: (ev) => {
 				if (ev.progress) {
 					downloadProgres.progress = Math.floor(ev.progress * 100);
@@ -28,10 +31,9 @@
 			}
 		});
 
-		const songs = res.data;
-		localStorage.setItem('songs', JSON.stringify(songs));
-		songState.songs = songs;
-		isDownloading = false;
+		const songsBlob = res.data;
+		await songDao.save(songsBlob);
+		songState.songs = JSON.parse(await songsBlob.text());
 		goto('/');
 	};
 </script>
