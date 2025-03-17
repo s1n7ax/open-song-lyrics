@@ -1,7 +1,4 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button';
-	import { Card } from '$lib/components/ui/card';
-	import { Progress } from '$lib/components/ui/progress';
 	import axios from 'axios';
 	import { songState } from '../../../../state/songs.svelte';
 	import { goto } from '$app/navigation';
@@ -38,16 +35,27 @@
 	};
 </script>
 
-<div
-	class="justify-content-center grid h-full w-full content-start justify-center justify-items-center"
->
-	<Card class="m-2 grid w-full p-3">
-		<p class="py-1">Looks like you have not downloaded any songs</p>
-		<p class="py-1">Click the button to download all the songs</p>
-		<Button class="mt-3 place-self-center" disabled={isDownloading} on:click={downloadSongs}
-			>{isDownloading ? 'Downloading' : 'Download'}</Button
-		>
-		<Progress class="mt-3" value={downloadProgres.progress} />
-		<p>{downloadProgres.estimated !== '' ? 'Estimation: ' + downloadProgres.estimated : ''}</p>
-	</Card>
+<div class="grid h-full w-full place-content-center place-items-start">
+	<div class="card card-border bg-base-100 min-w-96">
+		<div class="card-body m-5 p-0">
+			<h2 class="card-title">Download Songs</h2>
+			<p>Click the button to download/update songs</p>
+			<div class="card-actions justify-center">
+				<button
+					class="btn btn-primary btn-outline"
+					disabled={isDownloading}
+					onclick={downloadSongs}
+				>
+					{#if isDownloading}
+						<span class="loading loading-dots loading-lg"></span>
+					{/if}
+					{isDownloading ? 'Downloading' : 'Download'}
+				</button>
+
+				<progress class="progress progress-primary h-4" value={downloadProgres.progress} max="100"
+				></progress>
+				<p>{downloadProgres.estimated !== '' ? 'Estimation: ' + downloadProgres.estimated : ''}</p>
+			</div>
+		</div>
+	</div>
 </div>

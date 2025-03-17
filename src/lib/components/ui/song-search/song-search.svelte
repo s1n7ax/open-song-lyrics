@@ -21,7 +21,7 @@
 	let timeoutId: number;
 </script>
 
-<div class="grid h-full grid-rows-[auto_1fr] gap-2 p-1">
+<div class="card card-border bg-base-100 grid h-full min-w-96 grid-rows-[auto_1fr] gap-2 p-5">
 	<div class="grid grid-cols-[1fr_auto]">
 		<Input
 			class="text-xl sm:text-2xl md:text-3xl"
